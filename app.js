@@ -63,11 +63,11 @@ window.onload = function () {
   var selectCat = function () {
     if (chosenCategory === categories[0]) {
       categoryName.innerHTML =
-        "The chosen category is Premier League Football Teams";
+        "The chosen category is Ohio Football Teams";
     } else if (chosenCategory === categories[1]) {
-      categoryName.innerHTML = "The chosen category is Films";
+      categoryName.innerHTML = "The chosen category is My Kids";
     } else if (chosenCategory === categories[2]) {
-      categoryName.innerHTML = "The chosen category is Cities";
+      categoryName.innerHTML = "The chosen category is Outer Banks Villages";
     }
   };
 
@@ -120,4 +120,131 @@ window.onload = function () {
     context.strokeStyle = "#fff";
     context.lineWidth = 2;
   };
+
+head = function(){
+    myStickman=document.getElementById(stickFigure){
+    context=myStickman.getContext('2d');
+    context.beginPath();
+    context.arc(60,25,10,0, Math.PI*2, true);
+    context.stroke();
+    }
+draw = function($pathFromx, $pathFromy, $pathTox, $pathToy){
+context.moveTo($pathFromx, $pathFromy);
+context.lineTo($pathTox, $pathToy)
+context.stroke();
+}
+
+frame1=function(){
+    draw(0,150,150,150);
+};
+
+frame2=function(){
+    draw(10,0,10,600);
+};
+
+frame3=function(){
+    draw(0,5,70,5);
+};
+
+frame4=function(){
+    draw(60,5,60,15)
+};
+
+torso=function(){
+    draw(60,36,60,70);
+};
+
+rightArm=function(){
+    draw(60,46,100,50);
+};
+
+leftArm=function(){
+    draw(60,46,20,50);
+};
+
+rightLeg=function(){
+    draw(60,70,100,100);
+};
+
+leftLeg=function(){
+    draw(60,70,20,100);
+};
+
+drawArray=[rightLeg, leftLeg, rightArm, leftArm, torso, head, frame4, frame3, frame2, frame1
+];
+
+
+//onclick function
+chek=function(){
+    list.onclick=function(){
+        var guess=(this.innerHTML);
+        this.setAttribute("class", "active");
+        this.onclick=null;
+        for (var i=0; i < word.length; i++){
+            if (word[i]=== guess){
+                guesses[i].innerHTML=guess;
+                counter += 1 ;
+            }
+        }
+var j = (word.indexOf(guess));
+if (j === -1){
+    lives -= 1;
+    comments();
+    animate();  
+} else {
+    comments();
+}
+}
+}
+
+
+//Play
+play=function(){
+    categories = ["bengals", "buckeyes", "bobcats", "browns", "bearcats", "rockets", "zips", "falcons"],
+["addilyn", "william", "aurora", "samuel"],
+["hatteras", "rodanthe", "waves", "salvo", "avon", "frisco", "buxton", "ocracoke"];
+
+chosenCategory=categories[Math.floor(Math.random()*categories.length)];
+word = word.replace(/\s/g, "-");
+console.log(word);
+buttons();
+
+guesses = [];
+lives = 10;
+counter = 0;
+space = 0;
+result();
+comments();
+selectCat();
+canvas();
+}
+
+play();
+
+
+getHint.onclick = function() {
+    hints = [
+        ["NFL team based in Cincinnati", "College team based in Columbus, has a yummy snack alias", "Based in a party school from Athens and Zanesville", "A really bad NFL team from the great Cleveland", "A college team from Cincy named after a sweet hybrid animal", "This Toledo college team is named for a ship!", "Akron college team that could be zits", "Bowling Greem College team named for a bird that can damage you"],
+    ],
+    ["Oldest daughter of mine!", "Oldest son of mine!", "Peanut child", "Boopsti-pher"],
+    ["This village has is the farthest south on Hatteras Island", "This is the top village on Hatteras Island", "This village is named for a part of the ocean we love to ride", "The bottom village in the tri-village area", "This village is the largest metro area on Hatteras Island", "This village used to have a pier that got destroyed", "This village actually has the Cape Hatteras lighthouse in it", "You must ride a ferry to get to this secluded village"] ];
+
+var categoryIndex=categories.indexOf(chosenCategory);
+var hintIndex = chosenCategory.indexOf(word);
+showClue.innerHTML = "Clue: - " + hints[categoryIndex][hintIndex];
+};
+
+//Reset
+document.getElementById('reset').onclick = function(){
+    correct.parentNode.removeChild(correct);
+    letters.parentNode.removeChild(letters);
+    showClue.innerHTML = "";
+    context.clearRect(0,0,400,400);
+    play();
+}
+
+}
+
+
+
 };
