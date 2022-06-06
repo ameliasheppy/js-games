@@ -201,7 +201,7 @@ if (j === -1){
 //Play
 play=function(){
     categories = ["bengals", "buckeyes", "bobcats", "browns", "bearcats", "rockets", "zips", "falcons"],
-["addilyn", "william", "aurora", "samuel"],
+["a", "w", "a", "s"],
 ["hatteras", "rodanthe", "waves", "salvo", "avon", "frisco", "buxton", "ocracoke"];
 
 chosenCategory=categories[Math.floor(Math.random()*categories.length)];
